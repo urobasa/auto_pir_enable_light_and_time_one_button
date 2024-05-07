@@ -91,7 +91,7 @@ void setup()   {
 
 }
 void loop() {
-  if (buttondver.update()) {
+  if (buttondver.update()) { //если что то там с кнопкой на двери происходит
     if (button.read() == 0 and digitalRead(BUTTON_PIN_DVER) == 1) { //если кнопка отпущена - дверь открыта
       digitalWrite(LAMP, HIGH); //включить лампу
       digitalWrite(LED, LOW);  //выключить светодиод
@@ -103,7 +103,7 @@ void loop() {
   }
 
 
-  if (button.update()) { //если произошло событие
+  if (button.update()) { //если произошло событие с кнопкой на корпусе
     if (button.read() == 1) { //если кнопка нажата
       pressed_moment = millis(); // запоминаем время нажатия
     }
@@ -138,7 +138,7 @@ void loop() {
 
 
 
-          if (button.update()) { //если произошло событие
+          if (button.update()) { //если произошло событие с кнопкой на корпусе
             if (button.read() == 1) { //если кнопка нажата
               //ничего не делаем
             }
@@ -150,7 +150,7 @@ void loop() {
               displays.println(utf8rus("  сенсор"));
               displays.println(utf8rus("   авто"));
               displays.setFont(Adafruit5x7);
-              delay(3000);
+              delay(15000);
             }
           }
         }
@@ -300,7 +300,7 @@ void loop() {
               if ((millis() - pressed_moment) < pressed_long)
               { // если кнопка была нажата кратковременно
                 years++; // увеличиваем год
-                if (years >= 2045) years = 2017;
+                if (years >= 2045) years = 2024;
               }
               else
               { // кнопка удерживалась долго, переходим дальше
